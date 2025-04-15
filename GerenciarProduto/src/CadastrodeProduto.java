@@ -27,12 +27,12 @@ public class CadastrodeProduto {
                     "x - sair");
             entrada = s.nextLine();
 
-            boolean querAdicionar = true;
+            boolean querContinuar = true;
 
             switch (entrada) {
 
                 case "1":
-                    while(querAdicionar) {
+                    while(querContinuar) {
                         System.out.println("Escreva o nome do item que deseja adicionar");
                         entrada = s.nextLine();
                         listaProdutos.add(entrada);
@@ -41,18 +41,39 @@ public class CadastrodeProduto {
                         entrada = s.nextLine();
 
                         if (entrada.equals("s")){
-                            querAdicionar = true;
+                            querContinuar = true;
                         } else {
-                            querAdicionar = false;
+                            querContinuar = false;
                         }
 
 
                     }
-
                     break;
 
                 case "2":
-                    System.out.println("Escreva o nome do item que deseja remover");
+                    while(querContinuar) {
+                        System.out.println("Escreva o nome do item que deseja remover");
+                        entrada = s.nextLine();
+
+                        if (listaProdutos.contains(entrada)) {
+                            listaProdutos.remove(entrada);
+                            System.out.println("Este item foi removido com sucesso");
+                        } else {
+                            System.out.println("Este item não contém na lista");
+                        }
+
+                        listaProdutos.remove(entrada);
+
+
+                        System.out.println("Deseja remover mais? s/n");
+                        entrada = s.nextLine();
+
+                        if (entrada.equals("s")) {
+                            querContinuar = true;
+                        } else {
+                            querContinuar = false;
+                        }
+                    }
                     break;
 
                 case "3":
