@@ -77,7 +77,31 @@ public class CadastrodeProduto {
                     break;
 
                 case "3":
+                    while (querContinuar) {
+                        System.out.println("Escreva o nome do item que deseja alterar");
+                        entrada = s.nextLine();
 
+                        if (listaProdutos.contains(entrada)) {
+                            int index = listaProdutos.indexOf(entrada);
+
+                            System.out.println("Escreva o novo nome para o item:");
+                            String novoItem = s.nextLine();
+
+                            listaProdutos.set(index, novoItem);
+                            System.out.println("O item foi alterado com sucesso");
+                        } else {
+                            System.out.println("Este item não está na lista");
+                        }
+
+                        System.out.println("Deseja alterar mais algum item? s/n");
+                        entrada = s.nextLine();
+
+                        if (entrada.equalsIgnoreCase("s")) {
+                            querContinuar = true;
+                        } else {
+                            querContinuar = false;
+                        }
+                    }
                     break;
 
                 case "4":
